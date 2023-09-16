@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <section class="py-5">
+        <div class="container px-5 my-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6">
+                    <div class="text-center">
+                        <h2 class="fw-bolder">Choose A Difficulty</h2>
+                        <p class="lead fw-normal text-muted mb-5">This determines how rigorous your training program will be and how long it will take to complete it.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row gx-5">
+                <div class="col-lg-4 mb-5">
+                    <div class="card h-100 shadow border-0">
+                        <img class="card-img-top" src="{% static 'img/diff1.jpeg' %}" alt="..." />
+                        <div class="card-body p-4">
+                            <a class="text-decoration-none link-dark stretched-link" href="{% url 'pushups:hard' %}"><h5 class="card-title mb-3">Hard</h5></a>
+                            <p class="card-text mb-0">Train 0-100 pushups in 8 weeks. We don't want anyone to feel discouraged. This program is hard, but that doesn't mean you have to make it grueling!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-5">
+                    <div class="card h-100 shadow border-0">
+                        <img class="card-img-top" src="{% static "img/diff2.jpeg" %}" alt="..." />
+                        <div class="card-body p-4">
+                            <a class="text-decoration-none link-dark stretched-link" href="{% url 'pushups:extreme' %}"><h5 class="card-title mb-3">Extreme</h5></a>
+                            <p class="card-text mb-0">Train 0-100 pushups in 6 weeks. This difficulty is for push-up enthusiasts looking to push themselves to their limit. It's time to get serious and get buff fast! </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-5">
+                    <div class="card h-100 shadow border-0">
+                        <img class="card-img-top" src="{% static 'img/diff3.jpeg' %}" alt="..." />
+                        <div class="card-body p-4">
+                            <a class="text-decoration-none link-dark stretched-link" href="{% url 'pushups:impossible' %}"><h5 class="card-title mb-3">Impossible</h5></a>
+                            <p class="card-text mb-0">Train 0-100 pushups in 4 weeks. Based on my experience, nobody should be able to do this without selling their soul to the devil. Have fun in hell!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

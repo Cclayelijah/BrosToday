@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <section class="py-5 mb-5">
+        <div class="container px-5">
+            <h2>Leaderboard</h2>
+            <hr />
+            <table class="table align-middle mb-0 bg-white">
+              <thead class="bg-light">
+                <tr>
+                  <th>Username</th>
+                  <th>Total Pushups</th>
+                  <th>Difficulty</th>
+                  <th>Benchmark</th>
+                  <th>Rank</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for user in page_obj %}
+                    <tr>
+                      <td>
+                        <div class="d-flex align-items-center">
+                          <img
+                              src="{{ user.profile.image.url }}"
+                              alt=""
+                              style="width: 45px; height: 45px"
+                              class="rounded-circle"
+                              />
+                          <div class="ms-3">
+                            <p class="fw-bold mb-1">{{ user.username }}</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p class="fw-normal mb-1">{{ user.profile.total_pushups }}</p>
+                      </td>
+                      <td>
+                        {% if user.profile.difficulty_mode == 1 %}
+                            <span class="badge bg-success rounded-pill d-inline">Hard</span>
+                        {% endif %}
+                        {% if user.profile.difficulty_mode == 2 %}
+                            <span class="badge bg-warning rounded-pill d-inline">Extreme</span>
+                        {% endif %}
+                        {% if user.profile.difficulty_mode == 3 %}
+                            <span class="badge bg-danger rounded-pill d-inline">Impossible</span>
+                        {% endif %}
+                      </td>
+                      <td>{{ user.profile.get_benchmark }}</td>
+                      <td>
+                        {{ user.profile.get_rank }}
+                      </td>
+                    </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <nav style="margin-top:32px;">
+                <div class="">
+                  <div class="text-center row" style="align-items:center">
+                    <div class="col-12 col-sm-4 pagination">
+                        {% if page_obj.has_previous %}
+                            <div class="col-6"><a class="page-link" href="?page=1">&laquo; first</a></div>
+                            <div class="col-6">
+                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">previous</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="current page-item p-3 col-12 col-sm-4 text-center">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                    </div>
+                    <div class="col-12 col-sm-4 pagination">
+                        {% if page_obj.has_next %}
+                            <div class="col-6"><a class="page-link" href="?page={{ page_obj.next_page_number }}">next</a></div>
+                            <div class="col-6"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a></div>
+                        {% endif %}
+                    </div>
+                  </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+{% endblock %}

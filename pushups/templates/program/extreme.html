@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<section class="container py-5">
+    <div class="px-5 my-5 row">
+        <div class="justify-content-left col order-2 order-md-1">
+            <h1 class="card-title mb-3">Difficulty Extreme</h1>
+            <p class="card-text mb-3">Train 0-100 pushups in 6 weeks. Your schedule is flexible as long as you fit three workout days each week, and a rest day between each workout day. Usually that means Monday, Wednesday, and Friday. Each workout has a number of sets you must complete. Remember to rest 60 seconds between each workout (longer if needed). Good luck!</p>
+            <div class="d-grid gap-3 d-sm-flex justify-content-xs-center justify-content-sm-start mb-3">
+                <a class="btn btn-danger btn-lg px-4 me-sm-3" href="{% url "pushups:test" %}">Start</a>
+                <a class="btn btn-outline-dark btn-lg px-4" href="{% url "pushups:workout" %}">Continue</a>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-4 order-1 order-md-2" style="display:flex;align-items:center">
+            <img class="card-img-top" src="{% static 'img/diff2.jpeg' %}" alt="..." />
+        </div>
+    </div>
+    <div class="row px-5 my-3">
+        <div class="my-4 col-xl-4 col-md-6 col-xs-12">
+            <h3>Week 1</h3>
+            <hr />
+            <table style="width:100%">
+                <tr class="py-1">
+                    <th class="px-2 text-center">Day</th>
+                    <th class="px-2 text-center">Sets</th>
+                </tr>
+                {% for workout in workouts %}
+                    {% if workout.week == 1 %}
+                        <tr>
+                            <td class="px-2 text-center" style="width:56px;">
+                                <div class="bg-opacity-25 bg-danger rounded-circle p-2" style="flex:1;display:flex;justify-content:center;align-items:center;">{{ workout.day }}</div></td>
+                            <td class="px-2 text-center" style="display:flex;">
+                            {% for set in workout.sets %}
+                                <div class="bg-opacity-25 bg-primary p-2 m-1" style="flex:1;border-radius:4px;display:flex;justify-content:center;align-items:center;">{{ set }}</div>
+                            {% endfor %}
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+        <div class="my-4 col-xl-4 col-md-6 col-xs-12">
+            <h3>Week 2</h3>
+            <hr />
+            <table style="width:100%">
+                <tr class="py-1">
+                    <th class="px-2 text-center">Day</th>
+                    <th class="px-2 text-center">Sets</th>
+                </tr>
+                {% for workout in workouts %}
+                    {% if workout.week == 2 %}
+                        <tr>
+                            <td class="px-2 text-center" style="width:56px;">
+                                <div class="bg-opacity-25 bg-danger rounded-circle p-2" style="flex:1;display:flex;justify-content:center;align-items:center;">{{ workout.day }}</div></td>
+                            <td class="px-2 text-center" style="display:flex;">
+                            {% for set in workout.sets %}
+                                <div class="bg-opacity-25 bg-primary p-2 m-1" style="flex:1;border-radius:4px;display:flex;justify-content:center;align-items:center;">{{ set }}</div>
+                            {% endfor %}
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+        <div class="my-4 col-xl-4 col-md-6 col-xs-12">
+            <h3>Week 3</h3>
+            <hr />
+            <table style="width:100%">
+                <tr class="py-1">
+                    <th class="px-2 text-center">Day</th>
+                    <th class="px-2 text-center">Sets</th>
+                </tr>
+                {% for workout in workouts %}
+                    {% if workout.week == 3 %}
+                        <tr>
+                            <td class="px-2 text-center" style="width:56px;">
+                                <div class="bg-opacity-25 bg-danger rounded-circle p-2" style="flex:1;display:flex;justify-content:center;align-items:center;">{{ workout.day }}</div></td>
+                            <td class="px-2 text-center" style="display:flex;">
+                            {% for set in workout.sets %}
+                                <div class="bg-opacity-25 bg-primary p-2 m-1" style="flex:1;border-radius:4px;display:flex;justify-content:center;align-items:center;">{{ set }}</div>
+                            {% endfor %}
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+        <div class="my-4 col-xl-4 col-md-6 col-xs-12">
+            <h3>Week 4</h3>
+            <hr />
+            <table style="width:100%">
+                <tr class="py-1">
+                    <th class="px-2 text-center">Day</th>
+                    <th class="px-2 text-center">Sets</th>
+                </tr>
+                {% for workout in workouts %}
+                    {% if workout.week == 4 %}
+                        <tr>
+                            <td class="px-2 text-center" style="width:56px;">
+                                <div class="bg-opacity-25 bg-danger rounded-circle p-2" style="flex:1;display:flex;justify-content:center;align-items:center;">{{ workout.day }}</div></td>
+                            <td class="px-2 text-center" style="display:flex;">
+                            {% for set in workout.sets %}
+                                <div class="bg-opacity-25 bg-primary p-2 m-1" style="flex:1;border-radius:4px;display:flex;justify-content:center;align-items:center;">{{ set }}</div>
+                            {% endfor %}
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+        <div class="my-4 col-xl-4 col-md-6 col-xs-12">
+            <h3>Week 5</h3>
+            <hr />
+            <table style="width:100%">
+                <tr class="py-1">
+                    <th class="px-2 text-center">Day</th>
+                    <th class="px-2 text-center">Sets</th>
+                </tr>
+                {% for workout in workouts %}
+                    {% if workout.week == 5 %}
+                        <tr>
+                            <td class="px-2 text-center" style="width:56px;">
+                                <div class="bg-opacity-25 bg-danger rounded-circle p-2" style="flex:1;display:flex;justify-content:center;align-items:center;">{{ workout.day }}</div></td>
+                            <td class="px-2 text-center" style="display:flex;">
+                            {% for set in workout.sets %}
+                                <div class="bg-opacity-25 bg-primary p-2 m-1" style="flex:1;border-radius:4px;display:flex;justify-content:center;align-items:center;">{{ set }}</div>
+                            {% endfor %}
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+        <div class="my-4 col-xl-4 col-md-6 col-xs-12">
+            <h3>Week 6</h3>
+            <hr />
+            <table style="width:100%">
+                <tr class="py-1">
+                    <th class="px-2 text-center">Day</th>
+                    <th class="px-2 text-center">Sets</th>
+                </tr>
+                {% for workout in workouts %}
+                    {% if workout.week == 6 %}
+                        <tr>
+                            <td class="px-2 text-center" style="width:56px;">
+                                <div class="bg-opacity-25 bg-danger rounded-circle p-2" style="flex:1;display:flex;justify-content:center;align-items:center;">{{ workout.day }}</div></td>
+                            <td class="px-2 text-center" style="display:flex;">
+                            {% for set in workout.sets %}
+                                <div class="bg-opacity-25 bg-primary p-2 m-1" style="flex:1;border-radius:4px;display:flex;justify-content:center;align-items:center;">{{ set }}</div>
+                            {% endfor %}
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

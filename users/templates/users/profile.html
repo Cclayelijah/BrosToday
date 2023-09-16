@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<header class="bg-light pt-3 pb-5">
+    <div class="container px-5 text-center">
+        <div class="p-1 py-2">
+            <p class="text-muted mb-0 small">Joined {{ user.date_joined }}</p>
+        </div>
+        <div style="display:flex; justify-content: space-between; align-items: center">
+            <div>
+                <img class="rounded-circle" src="{{ user.profile.image.url }}" width="50" height="50" style="" />
+                <h5 class="my-1">{{ user.username }}</h5>
+            </div>
+            <div>
+                <a class="btn btn-outline-danger" href="{% url "logout" %}">Logout</a>
+            </div>
+        </div>
+    </div>
+    <div class="container my-5">
+        <div class="flex row">
+            <div class="text-center col-6 col-xs-12">
+                <h3 class="mb-3"><strong>Total Pushups</strong></h3>
+                <div class="flex center">
+                    <span class="rounded-circle bg-dark text-light p-2" style="margin: 0;font-size:20px;font-weight: 800">{{ request.user.profile.total_pushups }}</span>
+                </div>
+            </div>
+            <div class="text-center col-6 col-xs-12">
+                <h3 class="mb-3"><strong>Player Rank</strong></h3>
+                <div class="flex center">
+                    <span class="rounded-circle bg-dark text-light p-2" style="margin: 0;font-size:20px;font-weight: 800">{{ rank }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container shadow text-center pt-4 pb-4 rounded-2">
+        <div class="row" style="justify-content: space-around">
+            <div class="my-3 col-12 col-sm-4">
+                <span><strong>Benchmark</strong></span>
+                <h3>{{ benchmark }}</h3>
+            </div>
+            <div class="my-3 col-12 col-sm-4">
+                <span><strong>Difficulty Mode</strong></span>
+                {% if user.profile.difficulty_mode == 1 %}
+                    <h3 class="text-success">Hard</h3>
+                {% elif user.profile.difficulty_mode == 2 %}
+                    <h3 class="text-warning">Extreme</h3>
+                {% elif user.profile.difficulty_mode == 3 %}
+                    <h3 class="text-danger">Impossible</h3>
+                {% endif %}
+            </div>
+            <div class="my-3 col-12 col-sm-4">
+                <span><strong>Workouts</strong></span>
+                <h3>{{ total_workouts }}</h3>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}

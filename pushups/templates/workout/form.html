@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <header class="bg-light py-5">
+        {% if locked %}
+            <div class="container text-center mb-5">
+                <h3>Workout Unavailable.</h3>
+                <p>Please rest up in between workout days.</p>
+            </div>
+        {% else %}
+            <div class="container px-5 text-center">
+
+            <h2>💪 Let's give it all you got! 💪</h2>
+            <p>Make sure you push yourself to do as many pushups as you can in the last set.</p>
+        </div>
+        <div class="container text-center mb-5">
+            <div class="feature {% if workout_plan.difficulty == 1 %}bg-success{% endif %}
+                    {% if workout_plan.difficulty == 2 %}bg-warning{% endif %}
+                    {% if workout_plan.difficulty == 3 %}bg-danger{% endif %} bg-gradient text-white rounded-3 mb-3">
+                <i class="bi bi-emoji-sunglasses-fill"></i>
+            </div>
+            <h3>Week {{ workout_plan.week }}</h3>
+            <p>Day {{ workout_plan.day }}</p>
+            <p>Rest 90 seconds between each set.</p>
+            <div style="display:flex">
+                {% for set in workout_plan.sets %}
+                    <div class="bg-opacity-25 {% if workout_plan.difficulty == 1 %}bg-success{% endif %}
+                    {% if workout_plan.difficulty == 2 %}bg-warning{% endif %}
+                    {% if workout_plan.difficulty == 3 %}bg-danger{% endif %} p-2 m-1" style="flex:1;border-radius:4px;display:flex;justify-content:center;align-items:center;">{{ set }}</div>
+                {% endfor %}
+            </div>
+            <form method="POST" class="mt-5" style="max-width: 400px; margin: 0 auto;">
+                {% csrf_token %}
+                {{ form }}
+                <button class="btn btn-lg {% if workout_plan.difficulty == 1 %}bg-success{% endif %}
+                    {% if workout_plan.difficulty == 2 %}bg-warning{% endif %}
+                    {% if workout_plan.difficulty == 3 %}bg-danger{% endif %} mt-3" type="submit">Complete</button>
+            </form>
+        </div>
+        {% endif %}
+    </header>
+{% endblock %}

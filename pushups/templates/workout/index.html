@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <header class="bg-light py-5">
+        <div class="container px-5 text-center">
+            <h2>Ready for your next work out?</h2>
+            <p>Based on your last workout you should be able to complete
+            {{ workout_plan.benchmark }} pushups in one go. You're getting swol!</p>
+        </div>
+        <div class="container text-center mb-5">
+            <div class="feature {% if  difficulty == 1 %}bg-success{% endif %}
+                    {% if  difficulty == 2 %}bg-warning{% endif %}
+                    {% if  difficulty == 3 %}bg-danger{% endif %} bg-gradient text-white rounded-3 mb-3">
+                <i class="bi bi-emoji-sunglasses-fill"></i>
+            </div>
+            <h3>Week {{ workout_plan.week }}</h3>
+            <p>Day {{ workout_plan.day }}</p>
+            <div style="display:flex">
+                {% for set in workout_plan.sets %}
+                    <div class="bg-opacity-25
+                    {% if  difficulty == 1 %}bg-success{% endif %}
+                    {% if  difficulty == 2 %}bg-warning{% endif %}
+                    {% if  difficulty == 3 %}bg-danger{% endif %}
+                     p-2 m-1" style="flex:1;border-radius:4px;display:flex;justify-content:center;align-items:center;">{{ set }}</div>
+                {% endfor %}
+            </div>
+            <div style="margin:32px;">
+                <span><strong>Program Difficulty</strong></span>
+                {% if user.profile.difficulty_mode == 1 %}
+                    <h3 class="text-success">Hard</h3>
+                {% elif user.profile.difficulty_mode == 2 %}
+                    <h3 class="text-warning">Extreme</h3>
+                {% elif user.profile.difficulty_mode == 3 %}
+                    <h3 class="text-danger">Impossible</h3>
+                {% endif %}
+            </div>
+            <a class="btn btn-lg btn-dark" href="{% url 'pushups:workout_form' workout_plan.id %}">Start</a>
+        </div>
+    </header>
+{% endblock %}

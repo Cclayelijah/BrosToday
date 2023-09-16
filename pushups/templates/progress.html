@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <section class="py-5 mb-5">
+        <div class="container px-5">
+            <h2>My Workouts</h2>
+            <hr />
+            <canvas id="workoutChart" width="800" height="400"></canvas>
+
+            <h2 style="margin-top:32px;">My Benchmark Tests</h2>
+            <hr />
+            <canvas id="testChart" width="800" height="400"></canvas>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+  const testctx = document.getElementById('testChart').getContext('2d');
+  const workoutctx = document.getElementById('workoutChart').getContext('2d');
+  const test_dates = [{% for test in test_data %}"{{ test.date }}",{% endfor %}]
+  const workout_dates = [{% for workout in workout_data %}"{{ workout.date }}",{% endfor %}]
+
+  const sum = (arr) => {
+      console.log(arr);
+      let total = 0;
+      if (!arr || !arr.length)
+          return 0;
+      arr.forEach(i => {
+          console.log(i);
+          total+=i;
+      })
+      return total;
+  }
+
+  const testChart = new Chart(testctx, {
+      type: 'line',
+      data: {
+        labels : test_dates,
+          datasets: [{
+            label: "pushups per benchmark test",
+            data: [{% for test in test_data %}{{ test.pushups }},{% endfor %}],
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });
+
+  const workoutChart = new Chart(workoutctx, {
+      type: 'line',
+      data: {
+        labels : workout_dates,
+          datasets: [{
+            label: "total pushups per workout",
+            data: [{% for workout in workout_data %}sum({{ workout.sets_completed }}),{% endfor %}],
+            backgroundColor: 'rgba(192, 75, 75, 0.2)',
+            borderColor: 'rgba(192, 75, 75, 1)',
+            borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });
+  </script>
+{% endblock %}

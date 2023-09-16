@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <section class="py-5">
+        <div class="container px-5">
+            <!-- Contact form-->
+            <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
+                <div class="text-center mb-5">
+                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-emoji-sunglasses-fill"></i></div>
+                    <h3>{{ test_result.date }}</h3>
+                    <h1 class="fw-bolder">Test Results</h1>
+                    {% if test_result == 1 %}
+                        <p class="lead fw-normal text-muted mb-0">You did <strong>{{ test_result.pushups }}</strong> pushup.</p>
+                    {% else %}
+                        <p class="lead fw-normal text-muted mb-0">You did <strong>{{ test_result.pushups }}</strong> pushups.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

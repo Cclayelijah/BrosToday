@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <!-- Hero-->
+    <header class="bg-dark py-5">
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center justify-content-center">
+                <div class="col-lg-8 col-xl-7 col-xxl-6">
+                    <div class="my-5 text-center text-xl-start">
+                        <h1 class="display-5 fw-bolder text-white mb-2">The push-up program of the century.</h1>
+                        <p class="lead fw-normal text-white-50 mb-4">Go from 0 to 100 pushups in just 6 weeks! Let us guide you through your push-up journey.</p>
+                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                            <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url "pushups:test" %}">Get Started</a>
+                            <a class="btn btn-outline-light btn-lg px-4" href="{% url "pushups:program" %}">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="{% static 'img/hyper.gif' %}" alt="..." /></div>
+            </div>
+        </div>
+    </header>
+    <!-- Features section-->
+    <section class="py-5" id="features">
+        <div class="container px-5 my-5">
+            <div class="row gx-5">
+                <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">A better way to get buff.</h2></div>
+                <div class="col-lg-8">
+                    <div class="row gx-5 row-cols-1 row-cols-md-2">
+                        <div class="col mb-5 h-100">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
+                            <h2 class="h5">Take the Test</h2>
+                            <p class="mb-0">Do as many pushups as you can. This test gives us a starting point to create a workout plan specifically tailored to you.</p>
+                        </div>
+                        <div class="col mb-5 mb-md-0 h-100">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                            <h2 class="h5">Choose a Difficulty</h2>
+                            <p class="mb-0">Hard, Extreme, or Impossible. Difficulty determines how rigorous your training program will be and how long it will take to complete it.</p>
+                        </div>
+                        <div class="col mb-5 h-100">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
+                            <h2 class="h5">Plan Your Schedule</h2>
+                            <p class="mb-0">You must workout 3 days a week with rest days in between. Every workout can be completed within 20 minutes.</p>
+                        </div>
+                        <div class="col h-100">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-bug"></i></div>
+                            <h2 class="h5">Don't Give Up</h2>
+                            <p class="mb-0">Each workout consists of 5 sets. Rest time and the number of pushups you do will vary. Adjust the difficulty or repeat a week, just don't give up!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5 bg-light" id="scroll-target">
+        <div class="container px-5 my-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="{% static 'img/buff1.jpeg' %}" alt="..." /></div>
+                <div class="col-lg-6">
+                    <h2 class="fw-bolder">Why Push-ups?</h2>
+                    <p class="lead fw-normal text-muted mb-0">
+                        If you work out then you will get buff. That's why you should work out. And if you aren't sure how to work out, just do pushups! Follow our program for free - you are guaranteed to see results!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5">
+        <div class="container px-5 my-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="{% static 'img/buff2.webp' %}" alt="..." /></div>
+                <div class="col-lg-6">
+                    <h2 class="fw-bolder">What is a Push-up?</h2>
+                    <p class="lead fw-normal text-muted mb-0">
+                        A common calisthenics exercise beginning from the prone position. By raising and lowering the body using the arms, push-ups exercise the pectoral muscles, triceps, and anterior deltoids, with ancillary benefits to the rest of the deltoids, serratus anterior, coracobrachialis and the midsection as a whole. Push-ups are a basic exercise commonly used in physical education and military physical training.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonial section-->
+    <div class="py-5 bg-light">
+        <div class="container px-5 my-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-10 col-xl-7">
+                    <div class="text-center">
+                        <div class="fs-4 mb-4 fst-italic">"Have you ever wanted to be able to do 100 pushups at any given moment? How about 200? &#128521 Our program not only instills passion into your life, but it gives your workouts meaning. Don't wait, get buff and find a hot girlfriend now!"</div>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img class="rounded-circle me-3" src="{% static 'img/levi.jpeg' %}" alt="Be a Hero" width="150" height="auto" />
+                            <div class="fw-bold">
+                                <a href="https://elijahdev.com" target=”_blank”>Elijah Cannon</a>
+                                <span class="fw-bold text-primary mx-1">/</span>
+                                CEO, BrosToday
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{#    <section class="py-5">#}
+{#        <div class="container px-5 my-5">#}
+{#            <div class="row gx-5 justify-content-center">#}
+{#                <div class="col-lg-8 col-xl-6">#}
+{#                    <div class="text-center">#}
+{#                        <h2 class="fw-bolder">About the Creator</h2>#}
+{#                        <p class="lead fw-normal text-muted mb-5"><a href="https://elijahdev.com" target=”_blank”>Elijah Cannon</a> is a nerdy programmer that likes making money, long-boarding, and listening to music.</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
+{% endblock %}
