@@ -6,7 +6,9 @@ environ==1.0
 filelock==3.12.4
 jsonfield==3.1.0
 pbr==5.11.1
+Pillow==10.0.1
 platformdirs==3.10.0
+python-dotenv==1.0.0
 sqlparse==0.4.4
 stevedore==5.1.0
 tzdata==2023.3
