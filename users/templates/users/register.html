@@ -1,5 +1,16 @@
-<form method="POST">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit">Sign Up</button>
-</form>
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<!-- Hero-->
+<header class="bg-light py-5 flex-grow-1">
+    <div class="container px-5 text-dark">
+        <form method="POST" style="display:flex;flex-direction: column; max-width: 800px; margin: 0 auto;">
+            <h1>Register</h1>
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" style="display: block; margin: 32px 0 12px; padding:8px" class="btn btn-primary">Sign Up</button>
+            <p class="text-center">Already have an account? <a href="{% url "login" %}">Login</a></p>
+        </form>
+    </div>
+</header>
+{% endblock %}

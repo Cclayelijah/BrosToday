@@ -1,5 +1,15 @@
-<form method="POST">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit">Login</button>
-</form>
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<header class="bg-light py-5 flex-grow-1" >
+    <div class="container px-5 text-dark">
+        <form method="POST" style="display:flex;flex-direction: column; max-width: 800px; margin: 0 auto;">
+            <h1>Sign In</h1>
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" style="width:200px; margin: 24px 0 12px 0; padding:8px" class="btn btn-primary">Login</button>
+            <p class="text-center">Don't have an account? <a href="{% url "register" %}">Register</a></p>
+        </form>
+    </div>
+</header>
+{% endblock %}
